@@ -10,7 +10,8 @@ import json
 import os
 
 #Read in data
-path = str('/mnt/data/WineQuality-Jim-Git/WineQualityData.csv'.format(os.environ.get('DOMINO_PROJECT_NAME')))
+#modify path for GBP
+path = str('/mnt/data/WineQuality-Git/WineQualityData.csv'.format(os.environ.get('DOMINO_PROJECT_NAME')))
 df = pd.read_csv(path)
 print('Read in {} rows of data'.format(df.shape[0]))
 
@@ -54,6 +55,7 @@ print("MSE: ", round(mean_squared_error(y_test, preds),3))
 with open('/mnt/artifacts/dominostats.json', 'w') as f:
     f.write(json.dumps({"R2": round(r2_score(y_test, preds),3),
                        "MSE": round(mean_squared_error(y_test,preds),3)}))
+#change path for GBP???
 
 #Write results to dataframe for visualizations
 results = pd.DataFrame({'Actuals':y_test, 'Predictions':preds})
@@ -67,13 +69,15 @@ sns.regplot(
     x = 'Actuals',
     y = 'Predictions',
     order = 3)
-plt.savefig('/mnt/artifacts/sklearn_actual_v_pred_scatter.png')
+plt.savefig('/mnt/artifacts/results/sklearn_actual_v_pred_scatter.png')
+#change path for GBP
 
 fig2, ax2 = plt.subplots(figsize=(10,6))
 plt.title('Sklearn Actuals vs Predictions Histogram')
 plt.xlabel('Quality')
 sns.histplot(results, bins=6, multiple = 'dodge', palette = 'coolwarm')
-plt.savefig('/mnt/artifacts/sklearn_actual_v_pred_hist.png')
+plt.savefig('/mnt/artifacts/results/sklearn_actual_v_pred_hist.png')
+#change path for GBP
 
 #Saving trained model to serialized pickle object 
 
