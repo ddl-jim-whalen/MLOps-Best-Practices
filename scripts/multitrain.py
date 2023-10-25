@@ -11,7 +11,7 @@ domino_project =domino.Domino(project = str(os.environ.get('DOMINO_PROJECT_OWNER
 
 
 print('Kicking off sklearn model training')
-domino_project.job_start(command='/scripts/sklearn_model_train.py')
+domino_project.job_start(command='scripts/sklearn_model_train.py')
 
 print('Kicking off R model training')
 domino_project.job_start(command='scripts/R_model_train.R')
