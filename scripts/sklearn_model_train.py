@@ -55,7 +55,7 @@ print("MSE: ", round(mean_squared_error(y_test, preds),3))
 with open('/mnt/artifacts/dominostats.json', 'w') as f:
     f.write(json.dumps({"R2": round(r2_score(y_test, preds),3),
                        "MSE": round(mean_squared_error(y_test,preds),3)}))
-#change path for GBP???
+#no need to change path for GBP
 
 #Write results to dataframe for visualizations
 results = pd.DataFrame({'Actuals':y_test, 'Predictions':preds})

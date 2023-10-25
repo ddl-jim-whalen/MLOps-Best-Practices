@@ -1,6 +1,7 @@
 print("Reading in data")
 project_name <- Sys.getenv('DOMINO_PROJECT_NAME')
-path <- paste('/mnt/data/WineQuality-Jim-Git/WineQualityData.csv')
+path <- paste('/mnt/data/WineQuality-Git/WineQualityData.csv')
+#change path for GBP
 path <- gsub(" ", "", path, fixed = TRUE)
 data <- read.csv(file=path)
 head(data)
