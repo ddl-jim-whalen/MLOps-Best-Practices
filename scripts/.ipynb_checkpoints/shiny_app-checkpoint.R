@@ -60,10 +60,10 @@ ui <- fluidPage(
  
 prediction <- function(inpFeat1,inpFeat2,inpFeat3,inpFeat4,inpFeat5) {
   
-url <- "https://se-testing.domino.tech:443/models/63ff6f91dd4bfc60262248fe/latest/model"
+url <- "https://se-demo.domino.tech:443/models/653a640ec89cb93b0f7a8aaf/latest/model"
 response <- POST(
   url,
- authenticate("jXsBuFzMNQUHHjlRP0EFMUNFGZsvHYoLiKS267DrxIyKc6uP23y4yDmGityCnLGT", "jXsBuFzMNQUHHjlRP0EFMUNFGZsvHYoLiKS267DrxIyKc6uP23y4yDmGityCnLGT", type = "basic"),
+ authenticate("EWMlTOmVgoFkFiGNSzJKkMOOJAZeEg2Ve0LXupk7rOchBhRTK36TzNrinmhK2gEO", "EWMlTOmVgoFkFiGNSzJKkMOOJAZeEg2Ve0LXupk7rOchBhRTK36TzNrinmhK2gEO", type = "basic"),
     
     body=toJSON(list(data=list(density = inpFeat1, 
                                volatile_acidity = inpFeat2,
