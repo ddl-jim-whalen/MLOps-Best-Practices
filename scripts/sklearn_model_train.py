@@ -11,7 +11,11 @@ import os
 
 #Read in data
 #modify path for GBP
-path = str('/mnt/data/WineQuality-Git/WineQualityData.csv'.format(os.environ.get('DOMINO_PROJECT_NAME')))
+dataset_path = '/mnt/data/WineQuality-Git'
+#dataset_path = '/domino/datasets/local/WineQuality'
+path = str(dataset_path+'/WineQualityData.csv'.format(os.environ.get('DOMINO_PROJECT_NAME')))
+#path = str('/mnt/data/WineQuality-Git/WineQualityData.csv'.format(os.environ.get('DOMINO_PROJECT_NAME')))
+#path = str('/domino/datasets/local/{}/WineQualityData.csv'.format(os.environ.get('DOMINO_PROJECT_NAME')))
 df = pd.read_csv(path)
 print('Read in {} rows of data'.format(df.shape[0]))
 
@@ -70,6 +74,7 @@ sns.regplot(
     y = 'Predictions',
     order = 3)
 plt.savefig('/mnt/artifacts/results/sklearn_actual_v_pred_scatter.png')
+#plt.savefig('/mnt/visualizations/sklearn_actual_v_pred_scatter.png')
 #change path for GBP
 
 fig2, ax2 = plt.subplots(figsize=(10,6))
@@ -77,6 +82,7 @@ plt.title('Sklearn Actuals vs Predictions Histogram')
 plt.xlabel('Quality')
 sns.histplot(results, bins=6, multiple = 'dodge', palette = 'coolwarm')
 plt.savefig('/mnt/artifacts/results/sklearn_actual_v_pred_hist.png')
+#plt.savefig('/mnt/visualizations/sklearn_actual_v_pred_hist.png')
 #change path for GBP
 
 #Saving trained model to serialized pickle object 
